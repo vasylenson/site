@@ -1,5 +1,6 @@
 ---
 layout: ../layouts/CentreCard.astro
+title: Stuff by Marko
 ---
 
 # Still making this one :3
