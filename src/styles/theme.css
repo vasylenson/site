@@ -1,0 +1,18 @@
+:root {
+  /* CSS HEX */
+  --c-white: #fbfffcff;
+  --c-yellow: #fee502ff;
+  --c-orange: #febd01ff;
+  --c-blue: #1f61adff;
+  --c-black: rgb(34, 54, 68);
+}
+
+a {
+  color: var(--c-blue);
+  font-weight: 600;
+}
+
+html {
+  background: var(--c-black);
+  font-family: monospace;
+}

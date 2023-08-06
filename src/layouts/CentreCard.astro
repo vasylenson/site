@@ -3,6 +3,9 @@ interface Props {
   title: string;
 }
 
+import '../styles/theme.css'
+import Card from '../components/Card.astro';
+
 const { title } = Astro.props;
 ---
 
@@ -18,23 +21,13 @@ const { title } = Astro.props;
   </head>
   <body>
     <div>
-      <slot />
+      <Card>
+        <slot />
+      </Card>
     </div>
   </body>
 </html>
 <style is:global>
-  :root {
-    /* CSS HEX */
-    --c-white: #fbfffcff;
-    --c-yellow: #fee502ff;
-    --c-orange: #febd01ff;
-    --c-blue: #1f61adff;
-    --c-black: rgb(34, 54, 68);
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: var(--c-black);
-  }
   body div {
     display: grid;
     place-items: center;
@@ -42,9 +35,5 @@ const { title } = Astro.props;
   }
   body {
     margin: 0;
-  }
-  a {
-    color: var(--c-blue);
-    font-weight: 600;
   }
 </style>
