@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+    --color-*: initial;
+    --color-white: #fbfffcff;
+    --color-yellow: #fee502ff;
+    --color-orange: #febd01ff;
+    --color-blue: #1f61adff;
+    --color-black: rgb(34, 54, 68);
+
+    --shadow-card: 1rem 1rem 0 var(--color-orange);
+    --shadow-card-sm: 4px 4px 0 var(--color-orange);
+}
+
+@layer base {
+    * {
+        @apply text-base
+    }
+
+    a {
+        @apply text-blue hover:underline;
+    }
+
+    a:visited {
+        @apply text-blue; /* FIXME: should this different colour */
+    }
+
+    body {
+        @apply bg-black;
+        font-family: monospace;
+    }
+
+    h1 {
+        @apply text-3xl font-bold;
+    }
+
+    h2 {
+        @apply text-xl font-bold;
+    }
+
+    h3 {
+        @apply text-lg font-bold;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-white text-black text-center p-8 shadow-card hover:underline;
+    }
+}
+
