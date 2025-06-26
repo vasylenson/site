@@ -27,7 +27,7 @@
 
     body {
         @apply bg-black;
-        font-family: monospace;
+        font-family: 'Monaco', monospace;
     }
 
     h1 {
