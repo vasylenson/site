@@ -10,7 +10,7 @@ const { title, frontmatter } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -19,7 +19,7 @@ const { title, frontmatter } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? frontmatter?.title}</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <slot />
   </body>
 </html>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Sandwich from "@layouts/Sandwich.astro";
+import Card from "@/src/components/Card.astro";
+import { formatDate } from "@/src/utils/date";
+
+const blogs = await getCollection('blog');
+
+---
+<Sandwich title="blog by marko">
+  <h1 class="my-8">Welcome to the blog!</h1>
+  <p>Here are some recept posts:</p>
+  <ul class="grid grid-cols-4 gap-10 my-8">
+    {blogs.map((post) => <li>
+      <a href={`/blog/${post.id}`}>
+        <Card>
+          <h2 class="text-black mb-2 text-lg">{post.data.title}</h2>
+          <span class="text-cool-steel-500 no-underline">{formatDate(post.data.published)}</span>
+        </Card>
+      </a>
+    </li>)}
+  </ul>
+</Sandwich>

@@ -9,10 +9,12 @@ interface Props {
 const { title, frontmatter } = Astro.props;
 const sections = [
   { title: "home", href: "/" },
-  { title: "bio", href: "/bio" },
+  // { title: "bio", href: "/bio" },
   { title: "blog", href: "/blog" },
-  { title: "projects", href: "/projects" },
+  // { title: "projects", href: "/projects" },
 ];
+
+const year = new Date().getFullYear();
 ---
 
 <Base title={title} frontmatter={frontmatter}>
@@ -29,15 +31,24 @@ const sections = [
         ))
       }
     </nav>
-    <button
+    <!-- <button
       class="bg-white hover:bg-orange rounded-xs sha py-1 px-2 text-black"
     >
       say hi
-    </button>
+    </button> -->
   </header>
-  <main class="md:w-3/4 mx-auto px-4 py-2 text-white h-screen">
+  <main class="md:w-3/4 mx-auto px-4 py-2 text-white">
     <slot />
   </main>
+  <footer class="w-full md:w-3/4 mx-auto px-4 py-2 text-white mt-auto">
+    <hr class="border-1 border-cool-steel-500">
+    <div class="flex justify-between my-4 gap-4">
+      <p class="mr-auto">© {year} Marko Vasylenko.</p>
+      <a href="/">Home</a>
+      <a href="https://www.linkedin.com/in/marko-vasylenko/">LinkedIn</a>
+      <a href="https://github.com/vasylenson">GitHub</a>
+      <a href="https://substack.com/@itsamarko">Substack</a>
+    </div>
+  </footer>
 </Base>
 
-<footer></footer>

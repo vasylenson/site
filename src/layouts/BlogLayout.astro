@@ -1,0 +1,40 @@
+---
+import "../styles/blog.css";
+import { formatDate } from "../utils/date";
+import Base from "./Base.astro";
+
+interface Props {
+  postData: {
+    title: string;
+    description?: string | undefined;
+    published: Date;
+  };
+}
+
+const { postData } = Astro.props;
+
+const year = new Date().getFullYear();
+const published = formatDate(postData.published)
+---
+
+<Base title={`${postData.title} | blog by marko`}>
+  <div class="w-full md:w-2/3 mx-auto min-h-screen px-4 py-2 flex flex-col justify-between">
+    <header class="mt-10">
+      <h1>{postData.title}</h1>
+      <p class="my-4">published on {published}</p>
+      <p class="my-8 border-l-4 pl-4 border-cool-steel-500 text-cool-steel-200">{postData.description}</p>
+      <hr class="border-1 border-cool-steel-500">
+    </header>
+    <main class="my-16">
+      <slot />
+    </main>
+    <footer class="mt-auto">
+      <hr class="border-1 border-cool-steel-500">
+      <div class="flex justify-between my-4 gap-4 sm:gap-8">
+        <p class="mr-auto">© {year} Marko Vasylenko.</p>
+        <a href="/blog">See recent blog posts</a>
+        <a href="/">Home</a>
+      </div>
+    </footer>
+  </div>
+</Base>
