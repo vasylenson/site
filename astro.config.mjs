@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from "astro/config";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,4 +14,21 @@ export default defineConfig({
         locales: ["en-GB"],
         defaultLocale: "en-GB",
     },
+    fonts: [
+        {
+            provider: fontProviders.google(),
+            name: "Nanum Gothic",
+            cssVariable: "--font-nanum-gothic",
+        },
+        {
+            provider: fontProviders.google(),
+            name: "Nanum Gothic Coding",
+            cssVariable: "--font-nanum-gothic-mono",
+        },
+        {
+            provider: fontProviders.google(),
+            name: "Nanum Myeongjo",
+            cssVariable: "--font-nanum-myeongjo",
+        },
+    ],
 });

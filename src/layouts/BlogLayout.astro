@@ -18,14 +18,14 @@ const published = formatDate(postData.published)
 ---
 
 <Base title={`${postData.title} | blog by marko`}>
-  <div class="w-full md:w-2/3 mx-auto min-h-screen px-4 py-2 flex flex-col justify-between">
+  <div class="w-full md:w-2/3 mx-auto min-h-screen px-4 py-2 flex flex-col justify-between font-sans">
     <header class="mt-10">
       <h1>{postData.title}</h1>
       <p class="my-4">published on {published}</p>
       <p class="my-8 border-l-4 pl-4 border-cool-steel-500 text-cool-steel-200">{postData.description}</p>
       <hr class="border-1 border-cool-steel-500">
     </header>
-    <main class="my-16">
+    <main class="my-16 font-serif">
       <slot />
     </main>
     <footer class="mt-auto">

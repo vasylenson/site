@@ -14,9 +14,9 @@ const quickLinks = [
   <div class="grid h-screen place-items-center">
     <main class="text-white p-4">
       <Hero>
-        <div slot="content">
+        <div slot="content" class="border-r-2 border-cool-steel-600">
           <h1 class="mb-4">Hi, Marko here!</h1>
-          <p class="text-balance text-left mb-4">
+          <p class="text-balance text-left">
             This is the website with all the various things I do.
           </p>
         </div>
@@ -37,7 +37,7 @@ const quickLinks = [
 
           </div> -->
 
-          <div class="grid grid-cols-2 grid-rows-2 gap-10">
+          <div class="grid grid-cols-1 grid-rows-1 gap-10">
             {quickLinks.map(({ text, url }) => <a href={url}><Card>{text}</Card></a>)}
           </div>
         </div>

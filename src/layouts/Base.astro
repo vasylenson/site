@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
@@ -16,6 +17,11 @@ const { title, frontmatter } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
+
+    <Font cssVariable="--font-nanum-myeongjo" />
+    <Font cssVariable="--font-nanum-gothic-mono" />
+    <Font cssVariable="--font-nanum-gothic" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? frontmatter?.title}</title>
   </head>

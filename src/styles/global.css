@@ -108,6 +108,13 @@
     --color-ink-black-800: oklch(31.25% 0.030 252.62);
     --color-ink-black-900: oklch(21.06% 0.017 252.52);
     --color-ink-black-950: oklch(17.88% 0.011 242.46);
+
+    /* fonts */
+
+    /* --font-*: initial; */
+    --font-serif: var(--font-nanum-myeongjo);
+    --font-sans: var(--font-nanum-gothic);
+    --font-mono: var(--font-nanum-gothic-mono);
 }
 
 @layer base {
@@ -125,8 +132,7 @@
 
     body {
         /* @apply bg-black; */
-        @apply bg-black;
-        font-family: 'Monaco', monospace;
+        @apply bg-black font-serif;
 
         --dot: 1px;       /* dot size */
         --gap: 4rem;      /* grid spacing */
