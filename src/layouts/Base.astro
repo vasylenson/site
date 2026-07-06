@@ -18,11 +18,11 @@ const { title, frontmatter } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
 
-    <link rel="me" href="https://toot.community/@itsamarko" />
+    <link rel="me" href="https://toot.community/@itsamarko">
 
-    <Font cssVariable="--font-nanum-myeongjo" />
-    <Font cssVariable="--font-nanum-gothic-mono" />
-    <Font cssVariable="--font-nanum-gothic" />
+    <Font cssVariable="--font-nanum-myeongjo" preload />
+    <Font cssVariable="--font-nanum-gothic-mono" preload />
+    <Font cssVariable="--font-nanum-gothic" preload />
 
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? frontmatter?.title}</title>
