@@ -1,0 +1,44 @@
+---
+// Row of icon links to my social profiles.
+// Icons are .svg files imported as native Astro components (no dependency).
+import Bluesky from "../icons/bluesky.svg";
+import GitHub from "../icons/github.svg";
+import Mastodon from "../icons/mastodon.svg";
+import LinkedIn from "../icons/linkedin.svg";
+import Substack from "../icons/substack.svg";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+const socials = [
+    { name: "Mastodon", href: "https://toot.community/@itsamarko", Icon: Mastodon },
+  { name: "Bluesky", href: "https://bsky.app/profile/itsamarko.bsky.social", Icon: Bluesky },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/marko-vasylenko/", Icon: LinkedIn },
+  { name: "Substack", href: "https://substack.com/@itsamarko", Icon: Substack },
+  { name: "GitHub", href: "https://github.com/vasylenson", Icon: GitHub },
+];
+---
+
+<ul class:list={["flex items-center gap-5", className]}>
+  {
+    socials.map(({ name, href, Icon }) => (
+      <li>
+        <a
+          href={href}
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label={name}
+          class="group block"
+        >
+          <Icon
+            class="md:size-4 size-6 fill-cool-steel-300 transition-colors duration-200 group-hover:fill-cool-steel-100 group-focus-visible:fill-cool-steel-100"
+            aria-hidden="true"
+          />
+        </a>
+      </li>
+    ))
+  }
+</ul>

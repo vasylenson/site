@@ -1,4 +1,6 @@
 ---
+import Socials from "../components/Socials.astro";
+import Copyright from "../components/Copyright.astro";
 import Base from "./Base.astro";
 
 interface Props {
@@ -13,8 +15,6 @@ const sections = [
   { title: "blog", href: "/blog" },
   // { title: "projects", href: "/projects" },
 ];
-
-const year = new Date().getFullYear();
 ---
 
 <Base title={title} frontmatter={frontmatter}>
@@ -43,11 +43,9 @@ const year = new Date().getFullYear();
   <footer class="font-mono w-full md:w-3/4 mx-auto px-4 py-2 text-white mt-auto">
     <hr class="border-1 border-cool-steel-500">
     <div class="flex justify-between my-4 gap-4">
-      <p class="mr-auto">© {year} Marko Vasylenko.</p>
+      <Copyright />
       <a href="/">Home</a>
-      <a href="https://www.linkedin.com/in/marko-vasylenko/">LinkedIn</a>
-      <a href="https://github.com/vasylenson">GitHub</a>
-      <a href="https://substack.com/@itsamarko">Substack</a>
+      <Socials />
     </div>
   </footer>
 </Base>

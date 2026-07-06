@@ -1,47 +1,44 @@
 ---
-import Card from "../components/Card.astro";
+import Copyright from "../components/Copyright.astro";
 import Hero from "../components/Hero.astro";
+// import NavGraph from "../components/NavGraph.astro";
+import Socials from "../components/Socials.astro";
 import Base from "../layouts/Base.astro";
-
-const quickLinks = [
-  // { text: 'CV', url: '/cv'},
-  { text: 'Blog', url: '/blog'},
-];
-
+import lemon from "@/public/favicon.ico"
 ---
 
 <Base title="Welcome to my site!">
-  <div class="grid h-screen place-items-center">
-    <main class="text-white p-4">
+  <div class="min-h-screen flex flex-col">
+    <main class="flex-1 min-h-0 grid place-items-center text-white p-4">
       <Hero>
-        <div slot="content" class="border-r-2 border-cool-steel-600">
-          <h1 class="mb-4">Hi, Marko here!</h1>
-          <p class="text-balance text-left">
-            This is the website with all the various things I do.
-          </p>
-        </div>
-
-        <div slot="hero">
-          <!-- <div class="grid grid-cols-3 grid-rows-3 border border-deep-space-blue-500 rounded-lg">
-            <div />
-            <div />
-            <div />
-
-            <div />
-            <div />
-            <div />
-
-            <div />
-            <p class="border border-b-0 border-deep-space-blue-500 text-center py-2 rounded-t-lg">Software Engineering</p>
-            <div />
-
-          </div> -->
-
-          <div class="grid grid-cols-1 grid-rows-1 gap-10">
-            {quickLinks.map(({ text, url }) => <a href={url}><Card>{text}</Card></a>)}
+        <div slot="content" class="md:p-6 p-8 border-cool-steel-600">
+          <h1 class="mb-8">Hi, Marko here!</h1>
+          <div class="text-balance text-xl">
+            <p class="mb-4">
+              I am
+              <a href="https://elnino.tech/">software engineer</a>,
+              <a href="https://www.instagram.com/wulvetut/">musician</a>,
+              and philosophy enthusiast 
+              based in <a href="https://osm.org/go/0GSymdW--?relation=1380244">Enschede, NL</a>.
+              I studied computer science and philosophy (ongoing) at <a href="https://www.utwente.nl/">UT</a>,
+              and dabble in many other things.
+            </p>
+            <p class="mb-8">
+              I am obsessed with exploring the unfamiliar and connecting ideas from seemingly unrelated domains.
+            </p>
+            <Socials />
           </div>
+        </div>
+        
+        <div slot="hero" class="grid place-items-center">
+          <!-- <NavGraph /> -->
+           <img src={lemon} alt="marko's pixel avatar" />
         </div>
       </Hero>
     </main>
+
+    <footer class="mb-2 mt-8 max-w-2/3 m-auto">
+      <Copyright class="text-cool-steel-500" />
+    </footer>
   </div>
 </Base>

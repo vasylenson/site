@@ -1,0 +1,84 @@
+---
+const ROOT = { x: 58, y: 180 };
+
+// Primary section nodes.
+const sections = [
+  { label: "Bio", href: "/bio", x: 200, y: 66 },
+  { label: "Blog", href: "/blog", x: 200, y: 294 },
+];
+
+// Curved connector: horizontal-tangent cubic bezier from a -> b.
+const edge = (a: { x: number; y: number }, b: { x: number; y: number }) => {
+  const mx = (a.x + b.x) / 2;
+  return `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;
+};
+
+// Shared Tailwind class strings.
+const nodeCls =
+  "group cursor-pointer opacity-0 animate-graph-pop [animation-delay:var(--d)] " +
+  "focus:outline-none motion-reduce:animate-none motion-reduce:opacity-100";
+const edgeCls =
+  "fill-none stroke-cool-steel-600 [stroke-width:1] [stroke-linecap:round] " +
+  "[stroke-dasharray:320] [stroke-dashoffset:320] animate-graph-draw [animation-delay:var(--d)] " +
+  "transition-[stroke,stroke-width] duration-200 " +
+  "group-hover:stroke-orange group-hover:stroke-2 group-focus-visible:stroke-orange " +
+  "motion-reduce:animate-none motion-reduce:[stroke-dashoffset:0]";
+const labelCls =
+  "tracking-[0.02em] transition-colors duration-200 " +
+  "group-hover:fill-white group-focus-visible:fill-white";
+
+// Stagger animation ordering.
+let step = 0;
+---
+
+<nav class="w-full" aria-label="Site navigation">
+  <svg
+    viewBox="0 0 400 300"
+    role="list"
+    class="w-full h-auto overflow-visible font-mono"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- section branches -->
+    {
+      sections.map((s) => (
+        <a href={s.href} class={nodeCls} style={`--d:${step++ * 90 + 250}ms`}>
+          <path class={edgeCls} d={edge(ROOT, s)} />
+          <circle
+            cx={s.x}
+            cy={s.y}
+            r="12"
+            class="fill-steel-blue-400 stroke-black stroke-2 transition-all duration-200 group-hover:fill-orange group-hover:[r:14] group-focus-visible:fill-orange"
+          />
+          <text
+            x={s.x + 24}
+            y={s.y}
+            dominant-baseline="middle"
+            class={`fill-cool-steel-200 text-base ${labelCls}`}
+          >
+            {s.label}
+          </text>
+        </a>
+      ))
+    }
+
+    <!-- root -->
+    <g class="opacity-0 animate-graph-pop [animation-delay:0ms] motion-reduce:animate-none motion-reduce:opacity-100">
+      <circle
+        cx={ROOT.x}
+        cy={ROOT.y}
+        r="34"
+        class="fill-none stroke-orange [stroke-width:1.5] opacity-50 origin-center [transform-box:fill-box] animate-graph-halo motion-reduce:animate-none"
+      />
+      <circle cx={ROOT.x} cy={ROOT.y} r="32" class="fill-orange" />
+      <text
+        x={ROOT.x}
+        y={ROOT.y}
+        text-anchor="middle"
+        dominant-baseline="central"
+        class="fill-black text-base font-bold tracking-[0.03em]"
+      >
+        home
+      </text>
+    </g>
+  </svg>
+</nav>
